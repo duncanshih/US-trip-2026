@@ -428,10 +428,82 @@ body {
   cursor: pointer;
 }
 
-/* ─── Responsive ─── */
-@media (min-width: 768px) {
-  body { max-width: 430px; margin: 0 auto; box-shadow: 0 0 40px rgba(0,0,0,0.08); min-height: 100vh; }
-  .bottom-nav { max-width: 430px; left: 50%; transform: translateX(-50%); }
+/* ─── Responsive: iPad (768-1024px) ─── */
+@media (min-width: 768px) and (max-width: 1024px) {
+  body { max-width: 620px; margin: 0 auto; box-shadow: 0 0 40px rgba(0,0,0,0.08); background: var(--bg); }
+  .bottom-nav { max-width: 620px; left: 50%; transform: translateX(-50%); }
+  .trips-header h1 { font-size: 2.2rem; }
+  .section-label { padding: 24px 28px 12px; }
+  .section-subtitle { padding: 0 28px 16px; }
+  .trips-header { padding: 20px 28px 0; }
+  .tab-bar { padding: 14px 28px 0; }
+  .day-selector { padding: 18px 28px; }
+  .timeline { padding: 0 28px; }
+  .flight-card { margin: 0 28px 14px; }
+  .hotel-card { margin: 0 28px 16px; }
+  .hotel-card-img { height: 200px; }
+  .emer-card { margin: 0 28px 10px; }
+  .trip-stats { padding: 8px 28px 4px; }
+  .trip-select-wrap { padding: 0 28px 8px; }
+  .top-bar { padding: 14px 28px; }
+  .itin-card-preview { padding: 18px 20px; }
+  .itin-card-icon { width: 50px; height: 50px; font-size: 1.5rem; }
+  .itin-card-title { font-size: 1rem; }
+  .weather-strip { margin: 0 28px 16px; }
+}
+
+/* ─── Responsive: Desktop (>1024px) ─── */
+@media (min-width: 1025px) {
+  html { background: #f0f0f5; }
+  body { max-width: 960px; margin: 0 auto; box-shadow: 0 0 60px rgba(0,0,0,0.08); background: var(--bg); border-radius: 0 0 20px 20px; }
+  .bottom-nav { display: none; }
+  body { padding-bottom: 40px; }
+  .top-bar { padding: 18px 36px; }
+  .trips-header { padding: 20px 36px 0; }
+  .trips-header h1 { font-size: 2.4rem; }
+  .section-subtitle { padding: 0 36px 16px; font-size: 0.92rem; }
+  .tab-bar { padding: 16px 36px 0; }
+  .tab-item { font-size: 0.95rem; padding: 12px 0; margin-right: 32px; cursor: pointer; }
+  .tab-item:hover { color: var(--text-primary); }
+  .trip-stats { padding: 12px 36px 8px; }
+  .trip-stat .ts-value { font-size: 1.4rem; }
+  .trip-select-wrap { padding: 0 36px 8px; }
+
+  /* Day selector: horizontal wrap instead of scroll */
+  .day-selector { padding: 20px 36px; flex-wrap: wrap; overflow-x: visible; }
+  .day-chip { padding: 12px 24px; font-size: 0.85rem; cursor: pointer; transition: var(--transition); }
+  .day-chip:hover { border-color: var(--text-secondary); background: var(--bg-secondary); }
+
+  /* Timeline cards: 2-column grid */
+  .timeline { padding: 0 36px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .itin-card { margin-bottom: 0; cursor: pointer; }
+  .itin-card:hover { box-shadow: var(--card-shadow-hover); border-color: var(--text-tertiary); }
+  .itin-card:active { transform: none; }
+  .itin-card-preview { padding: 20px; gap: 16px; }
+  .itin-card-icon { width: 52px; height: 52px; font-size: 1.5rem; }
+  .itin-card-title { font-size: 1.02rem; }
+  .itin-card-subtitle { white-space: normal; }
+
+  .section-label { padding: 24px 36px 12px; font-size: 0.72rem; }
+  .weather-strip { margin: 0 36px 20px; padding: 16px 22px; }
+
+  /* Flight & Hotel cards wider */
+  .flight-card { margin: 0 36px 16px; padding: 24px; }
+  .flight-city .code { font-size: 2rem; }
+  .hotel-card { margin: 0 36px 18px; }
+  .hotel-card-img { height: 220px; }
+  .hotel-card-info { padding: 16px 22px; }
+  .hotel-card-info .h-name { font-size: 1.15rem; }
+  .hotel-card-body { padding: 0 22px 18px; }
+  .hotel-detail-row { font-size: 0.88rem; padding: 12px 0; }
+
+  .emer-card { margin: 0 36px 12px; padding: 18px 22px; }
+
+  /* Share button hover */
+  .share-btn:hover { background: var(--bg-secondary); }
+  .detail-action:hover { background: var(--bg-secondary); }
+  .hotel-card-actions a:hover { background: var(--bg-secondary); }
+  .emer-card:hover { background: var(--bg-secondary); }
 }
 
 /* ─── Animations ─── */
@@ -447,7 +519,14 @@ body {
 </head>
 <body>
 
-<div id="app"></div>
+<div id="app"><div style="display:flex;align-items:center;justify-content:center;height:80vh;color:#999;font-size:15px;">載入中...</div></div>
+
+<noscript>
+<div style="padding:40px 20px;text-align:center;font-family:sans-serif;">
+  <h2 style="color:#333;">請使用 Safari 開啟此檔案</h2>
+  <p style="color:#666;margin-top:12px;line-height:1.6;">此行程需要瀏覽器來顯示。<br>請點右上角分享按鈕，選擇「在 Safari 中打開」。</p>
+</div>
+</noscript>
 
 <script>
 window.onerror = function(msg, src, line, col, err) {
