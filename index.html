@@ -626,7 +626,11 @@ function renderPage() {
 
   } else if (state.page === 'emergency') {
     el.innerHTML = `
-            <div class="section-label">聯絡清單</div>
+      <div class="emer-banner fade-up">
+        <div class="e-title">緊急情況請立即撥打</div>
+        <a href="tel:110">🚨 110 日本警察</a>
+      </div>
+      <div class="section-label">聯絡清單</div>
       ${trip.emergency.map(e => `
       <a href="tel:${e.number.replace(/[^0-9+]/g,'')}" class="emer-card fade-up" style="text-decoration:none;color:inherit;">
         <span class="el">
