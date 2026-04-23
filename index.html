@@ -129,18 +129,6 @@ body {
 }
 .day-chip.active .day-label { color: rgba(255,255,255,0.7); }
 
-/* ─── Weather Strip ─── */
-.weather-strip {
-  margin: 0 20px 16px; padding: 14px 18px;
-  background: var(--bg-secondary); border-radius: var(--radius);
-  display: flex; align-items: center; justify-content: space-between;
-}
-.weather-strip .wl { display: flex; align-items: center; gap: 10px; }
-.weather-strip .w-icon { font-size: 1.8rem; }
-.weather-strip .w-temp { font-size: 1.4rem; font-weight: 700; }
-.weather-strip .w-desc { font-size: 0.78rem; color: var(--text-secondary); }
-.weather-strip .wr { font-size: 0.75rem; color: var(--text-secondary); text-align: right; line-height: 1.7; }
-
 /* ─── Timeline ─── */
 .timeline { padding: 0 20px; }
 
@@ -519,10 +507,6 @@ function renderPage() {
             <span class="day-label">${d.date}</span>
           </div>
         `).join('')}
-      </div>
-<div class="w-desc">${day.weather.desc}</div></div>
-        </div>
-        <div class="wr">💧 ${day.weather.humidity}<br>🌬️ ${day.weather.wind}</div>
       </div>
 
       <div class="section-label">${day.date}</div>
