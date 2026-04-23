@@ -626,8 +626,7 @@ function renderPage() {
 
   } else if (state.page === 'emergency') {
     el.innerHTML = `
-      ${(function(){ var b=(trip.emergency&&trip.emergency[0])||{icon:"🚨",number:"911",label:""}; var n=b.number||"911"; var tel=n.replace(/[^0-9+]/g,""); return `<div class="emer-banner fade-up"><div class="e-title">緊急情況請立即撥打</div><a href="tel:${tel}">${b.icon||"🚨"} ${n}${b.label?" "+b.label:""}</a></div>`; })()}
-      <div class="section-label">聯絡清單</div>
+            <div class="section-label">聯絡清單</div>
       ${trip.emergency.map(e => `
       <a href="tel:${e.number.replace(/[^0-9+]/g,'')}" class="emer-card fade-up" style="text-decoration:none;color:inherit;">
         <span class="el">
